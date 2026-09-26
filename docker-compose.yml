@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: flowforge
+      POSTGRES_PASSWORD: flowforge_password
+      POSTGRES_DB: flowforge_db
+    ports:
+      - "5432:5432"
+    # TODO: Add volumes for persistent data
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    # TODO: Add custom redis.conf for persistence
+
+  # TODO: Add Prometheus and Grafana services for observability
